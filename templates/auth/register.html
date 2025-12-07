@@ -5,7 +5,7 @@
     <form class="container text-center mt-10 " method="POST" action="/auth/register">
         <input class="w-90 border-b text-center rounded-lg m-4 block mx-auto " type="text" name="full_name" placeholder="Full Name">
         <input class="w-90 border-b text-center rounded-lg m-4 block mx-auto " type="text" name="username" placeholder="Username">
-        <input class="w-90 border-b text-center rounded-lg m-4 block mx-auto " type="password" name="password" placeholder="Password">
+        <input class="w-90 border-b text-center rounded-lg m-4 block mx-auto " type="password" name="password" minlength="6" placeholder="Password">
         <input class="w-90 border-b text-center rounded-lg m-4 block mx-auto " type="password" name="password2" placeholder="re-password">
         <input class="w-90 border-b text-center rounded-lg m-4 block mx-auto " type="date" name="birthdate" placeholder="Birthdate">
         <button class=" drop-shadow-lg block mx-auto mt-6 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">Register</button>
@@ -18,7 +18,7 @@
   {% if messages %}
     <ul id="flash-msg text-center" class=flashes>
     {% for message in messages %}
-      <li class="text-red-300 ">{{ message }}</li>
+      <li class="text-red-500 text-center font-bold ">{{ message }}</li>
     {% endfor %}
     </ul>
      <script>

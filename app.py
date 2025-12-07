@@ -47,7 +47,7 @@ class User(db.Model):
 
 with app.app_context():
     db.create_all()
-    
+
 @app.route('/auth/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -82,7 +82,7 @@ def register():
             password2 = request.form.get('password2')
             birth = request.form.get('birthdate')
             if password != password2 :
-                flash({'message': 'Passwords do not match!'})
+                flash('Passwords do not match!')
                 return redirect('/auth/register')
             if User.query.filter_by(username=username).first():
                 return jsonify({'message': 'Username already exists!'}), 400

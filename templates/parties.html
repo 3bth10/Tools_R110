@@ -22,8 +22,11 @@
   {% endif %}
 {% endwith %}
  <h1 class="text-4xl font-bold border-b mt-10 text-center p-2 text-orange-400 ">الحفلات</h1>
+    {% if not parties %}
+    <a href="{{url_for('login')}}" class="  hover:text-orange-300 p-5 text-xl lg:text-4xl md:text-3-1 border-b  text-center text-orange-400 mt-50 font-bold ">Sing up  to show the party </a>
     
-<div class="grid gap-3 grid-cols-2 lg:grid-cols-4 p-5 md:grid-cols-2 sm:grid-cols-2 mb-10">
+    {% endif %}
+<div class="grid gap-3 grid-cols-1 lg:grid-cols-4 p-5 md:grid-cols-2 sm:grid-cols-2 mb-10">
     {% for party in parties %}
 <div class="party-card bg-orange-200 p-6 rounded-xl mt-10 shadow-lg text-black transition-all hover:scale-105"
      data-salary="{{ party.salary }}"
