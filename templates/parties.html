@@ -10,12 +10,11 @@
     {% endfor %}
     </ul>
      <script>
-        
         setTimeout(() => {
           const flash = document.getElementById('flash-msg');
           if (flash) {
             flash.classList.add('opacity-0'); 
-            setTimeout(() => flash.remove(), 500); // remove after fade
+            setTimeout(() => flash.remove(), 500); 
           }
         }, 3000);
       </script>
@@ -25,11 +24,11 @@
     {% if not parties %}
     <a href="{{url_for('login')}}" class="  hover:text-orange-300 p-5 text-xl lg:text-4xl md:text-3-1 border-b  text-center text-orange-400 mt-50 font-bold ">Sing up  to show the party </a>
     
-<<<<<<< HEAD
+
     {% endif %}
-=======
->>>>>>> e050e9ace81b97e2f6eaa94d327ad9c9430cf5b5
-<div class="grid gap-3 grid-cols-1 lg:grid-cols-4 p-5 md:grid-cols-2 sm:grid-cols-2 mb-10">
+
+
+<div class="grid text-center gap-3 grid-cols-1 lg:grid-cols-4 p-5 md:grid-cols-2 sm:grid-cols-2 mb-10">
     {% for party in parties %}
 <div class="party-card bg-orange-200 p-6 rounded-xl mt-10 shadow-lg text-black transition-all hover:scale-105"
      data-salary="{{ party.salary }}"
@@ -39,13 +38,26 @@
     <h4>قاعة : {{ party.hall }}</h4>
     <p>{{ party.date }} | التاريخ</p>
     <p>عدد المناديب : {{ party.members }}</p>
+    {% if members_names != '' %}
+    <p> اسماء المناديب </p> <hr>
+   <ol class="grid grid-cols-2 justify-items-center"> 
+   
+   
+    {% for name in party.members_names.split() %}
+     <li class="">{{name}}</li>
+    {% endfor %}</ol>
+    <hr>
+    {% else %}
+      <p>مافي اسماء...</p>
+    {% endif %}
+
     <p>المرتب : {{ party.salary }} ريال</p>
 
     <p class="result font-bold text-blue-800 mt-2"></p>
 
-    <div class="flex gap-3 mt-4">
+    <div class="flex gap-3 mt-4 ">
         <form action="/parties/{{ party.id }}" method="post">
-            <button class="bg-orange-300 rounded-lg shadow-lg p-2 hover:bg-orange-500 transition-colors">delete</button>
+            <button class=" bg-orange-300 rounded-lg shadow-lg p-2 hover:bg-orange-500 transition-colors">delete</button>
         </form>
 
         <form action="/updateparty/{{ party.id }}" method="get">

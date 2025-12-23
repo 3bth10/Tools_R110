@@ -25,6 +25,7 @@ class Party(db.Model):
     hall = db.Column(db.String(100))
     location = db.Column(db.String(100))
     members = db.Column(db.Integer)
+    members_names = db.Column(db.String(300))
     salary = db.Column(db.Integer)
     date = db.Column(db.String(20))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -138,6 +139,7 @@ def manage_parties():
             members=data.get("members"),
             salary=data.get("salary"),
             date=data.get("date"),
+            members_names=data.get("members_names"),
             user_id=session.get('user_id')
         )
             db.session.add(party)
